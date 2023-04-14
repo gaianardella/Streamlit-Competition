@@ -64,6 +64,9 @@ if show_question:
         index=0
     )
     
+    if choice =="Upload Clothes":
+        st.subheader("Welcome to the page")
+    
 
 
         
