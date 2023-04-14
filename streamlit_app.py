@@ -7,6 +7,12 @@ import streamlit as st  # pip install streamlit
 # import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 
 
+# Define the logout function
+def logout():
+    # Add logout logic here
+    # For example, you can clear session data or redirect to a login page
+    st.write("Logout clicked")
+
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide")
 
@@ -36,6 +42,26 @@ if st.button("Login"):
         show_question = False
 else:
     show_question = False
+    
+
+if show_app:
+    # ---- SIDEBAR ----
+    # Add widgets to the sidebar
+    st.sidebar.header("Sidebar")
+    if st.sidebar.button("Logout"):
+        logout()
+
+# # Add other widgets to the sidebar here
+
+#     authenticator.logout("Logout", "sidebar")
+#     st.sidebar.title(f"Welcome {name}")
+#     st.sidebar.header("Please Filter Here:")
+#     city = st.sidebar.multiselect(
+#         "Select the City:",
+#         options=df["City"].unique(),
+#         default=df["City"].unique()
+#     )
+    
 
 
         
