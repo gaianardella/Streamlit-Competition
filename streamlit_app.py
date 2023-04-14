@@ -44,7 +44,7 @@ else:
     show_question = False
     
 
-if show_app:
+if show_question:
     # ---- SIDEBAR ----
     # Add widgets to the sidebar
     st.sidebar.header("Sidebar")
