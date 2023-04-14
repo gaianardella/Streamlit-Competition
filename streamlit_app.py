@@ -8,6 +8,8 @@ CORRECT_PASSWORD = "password"
 # Create a title and subheader
 st.title("Login Page")
 st.subheader("Enter your credentials to log in.")
+st.header("Enter your credentials to log in.")
+
 
 # # Create input fields for username and password
 # username = st.text_input("Username")
