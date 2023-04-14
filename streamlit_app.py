@@ -59,14 +59,19 @@ if show_question:
     st.sidebar.header("Please Filter Here:")
     choice = st.sidebar.radio(
         "Select choice:",
-        options=["Upload Clothes", "Pick me an outfit", "Give me some stats"],
+        options=["Upload Clothes", "Pick me an outfit", "Give me some stats"] #,
 #         format_func=format_option
-        index=0
+#         index=0
     )
     
     if choice =="Upload Clothes":
-        st.subheader("Welcome to the page")
-    
+        st.subheader("Welcome to the Upload Clothes page")
+    elif choice =="Pick me an outfit":
+        st.subheader("Welcome to the Pick me an outfit page")
+    elif choice =="Give me some stats":
+        st.subheader("Welcome to the Give me some stats page")
+    else:
+        st.subheader("How to use the app")
 
 
         
