@@ -61,7 +61,7 @@ if show_question:
         "Select choice:",
         options=["Upload Clothes", "Pick me an outfit", "Give me some stats"],
 #         format_func=format_option
-        default=["Pick me an outfit"]
+        index=0
     )
     
 
