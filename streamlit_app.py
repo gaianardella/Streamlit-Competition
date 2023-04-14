@@ -30,12 +30,12 @@ password = st.text_input('Password', type='password')
 if st.button("Login"):
     if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
         st.success("You have successfully logged in.")
-        show_app=TRUE
+        show_question = True
     else:
         st.error('Invalid username or password')
-        show_app=FALSE
+        show_question = False
 else:
-    show_app=FALSE
+    show_question = False
 
 
         
