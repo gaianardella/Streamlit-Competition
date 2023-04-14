@@ -8,17 +8,17 @@ CORRECT_PASSWORD = "password"
 # Create a title and subheader
 st.title("Login Page")
 st.subheader("Enter your credentials to log in.")
-st.header("Enter your credentials to log in.")
+# st.header("Enter your credentials to log in.") #is bigger
 
 
-# # Create input fields for username and password
-# username = st.text_input("Username")
-# password = st.text_input("Password", type="password")
+# Create input fields for username and password
+username = st.text_input("Username")
+password = st.text_input("Password", type="password")
 
-# # Create a button to submit login information
-# if st.button("Login"):
-#     if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
-#         st.success("You have successfully logged in.")
-#     else:
-#         st.error("Invalid username or password.")
+# Create a button to submit login information
+if st.button("Login"):
+    if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
+        st.success("You have successfully logged in.")
+    else:
+        st.error("Invalid username or password.")
 
