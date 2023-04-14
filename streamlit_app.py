@@ -50,17 +50,15 @@ if show_question:
     st.sidebar.header("Sidebar")
     if st.sidebar.button("Logout"):
         logout()
-
-# # Add other widgets to the sidebar here
-
-#     authenticator.logout("Logout", "sidebar")
-#     st.sidebar.title(f"Welcome {name}")
-#     st.sidebar.header("Please Filter Here:")
-#     city = st.sidebar.multiselect(
-#         "Select the City:",
-#         options=df["City"].unique(),
-#         default=df["City"].unique()
-#     )
+        
+# Add other widgets to the sidebar here
+    st.sidebar.title(f"Welcome {name}")
+    st.sidebar.header("Please Filter Here:")
+    city = st.sidebar.multiselect(
+        "Select the City:",
+        options=df["City"].unique(),
+        default=df["City"].unique()
+    )
     
 
 
