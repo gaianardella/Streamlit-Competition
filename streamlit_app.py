@@ -43,6 +43,9 @@ if st.button("Login"):
 else:
     show_question = False
     
+# Define the format function
+def format_option(option):
+    return "• " + option
 
 if show_question:
     # ---- SIDEBAR ----
@@ -54,10 +57,11 @@ if show_question:
 # Add other widgets to the sidebar here
     st.sidebar.title(f"Welcome {CORRECT_USERNAME}")
     st.sidebar.header("Please Filter Here:")
-    city = st.sidebar.multiselect(
+    choice = st.sidebar.multiselect(
         "Select choice:",
         options=["Upload Clothes", "Pick me an outfit", "Give me some stats"],
-        default=["Pick me an outfit"]
+        format_func=format_option
+#         default=["Pick me an outfit"]
     )
     
 
