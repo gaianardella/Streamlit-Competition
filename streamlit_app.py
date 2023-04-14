@@ -57,11 +57,11 @@ if show_question:
 # Add other widgets to the sidebar here
     st.sidebar.title(f"Welcome {CORRECT_USERNAME}")
     st.sidebar.header("Please Filter Here:")
-    choice = st.sidebar.multiselect(
+    choice = st.sidebar.radio(
         "Select choice:",
         options=["Upload Clothes", "Pick me an outfit", "Give me some stats"],
-        format_func=format_option
-#         default=["Pick me an outfit"]
+#         format_func=format_option
+        default=["Pick me an outfit"]
     )
     
 
