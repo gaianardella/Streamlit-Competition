@@ -56,8 +56,8 @@ if show_question:
     st.sidebar.header("Please Filter Here:")
     city = st.sidebar.multiselect(
         "Select choice:",
-        options="Choice A",
-        default="Choice B"
+        options=["Upload Clothes", "Pick me an outfit", "Give me some stats"],
+        default=["Pick me an outfit"]
     )
     
 
