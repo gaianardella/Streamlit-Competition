@@ -14,7 +14,7 @@ def logout():
     st.write("Logout clicked")
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide")
+st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide", sidebar_bg_color='blue')
 
 
 # --- USER AUTHENTICATION ---
@@ -53,14 +53,14 @@ if show_question:
     st.sidebar.header("Sidebar")
     if st.sidebar.button("Logout"):
         logout()
-    st.subheader("How to use the app")
+    
         
 # Add other widgets to the sidebar here
     st.sidebar.title(f"Welcome {CORRECT_USERNAME}")
     st.sidebar.header("Please Filter Here:")
     choice = st.sidebar.radio(
         "Select choice:",
-        options=["Upload Clothes", "Pick me an outfit", "Give me some stats"] #,
+        options=["Upload Clothes", "Pick me an outfit", "Give me some stats", "I need help"] #,
 #         format_func=format_option
 #         index=0
     )
@@ -71,7 +71,9 @@ if show_question:
         st.subheader("Welcome to the Pick me an outfit page")
     elif choice =="Give me some stats":
         st.subheader("Welcome to the Give me some stats page")
-
+    else:
+        st.subheader("How to use the app")
+        
         
 # # --- USER AUTHENTICATION ---
 # names = ["Peter Parker", "Rebecca Miller"]
