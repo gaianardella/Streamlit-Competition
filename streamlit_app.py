@@ -12,13 +12,26 @@ st.subheader("Enter your credentials to log in.")
 
 
 # Create input fields for username and password
-username = st.text_input("Username")
-password = st.text_input("Password", type="password")
+username = st.text_input('Username')
+password = st.text_input('Password', type='password')
 
-# Create a button to submit login information
 if st.button("Login"):
     if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
         st.success("You have successfully logged in.")
+        show_question = True
     else:
-        st.error("Invalid username or password.")
+        st.error('Invalid username or password')
+        show_question = False
+else:
+    show_question = False
 
+# Show Question
+if show_question:
+    options = ['Option A', 'Option B', 'Option C']
+    selected_option = st.selectbox('Select an option', options)
+
+    if st.button('Refresh'):
+        selected_option = None
+
+    if selected_option:
+        st.write('You selected:', selected_option)
