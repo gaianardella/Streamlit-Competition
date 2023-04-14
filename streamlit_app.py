@@ -14,7 +14,7 @@ def logout():
     st.write("Logout clicked")
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
-st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide", sidebar_bg_color='blue')
+st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide")
 
 
 # --- USER AUTHENTICATION ---
