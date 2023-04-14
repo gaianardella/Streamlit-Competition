@@ -52,12 +52,12 @@ if show_question:
         logout()
         
 # Add other widgets to the sidebar here
-    st.sidebar.title(f"Welcome {name}")
+    st.sidebar.title(f"Welcome {CORRECT_USERNAME}")
     st.sidebar.header("Please Filter Here:")
     city = st.sidebar.multiselect(
-        "Select the City:",
-        options=df["City"].unique(),
-        default=df["City"].unique()
+        "Select choice:",
+        options="Choice A",
+        default="Choice B"
     )
     
 
