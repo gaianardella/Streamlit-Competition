@@ -48,8 +48,8 @@ if show_question:
     # ---- SIDEBAR ----
     # Add widgets to the sidebar
     st.sidebar.header("Sidebar")
-#     if st.sidebar.button("Logout"):
-#         logout()
+    if st.sidebar.button("Logout"):
+        logout()
 
 # # Add other widgets to the sidebar here
 
