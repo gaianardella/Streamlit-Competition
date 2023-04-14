@@ -27,11 +27,12 @@ else:
 
 # Show Question
 if show_question:
+    question_placeholder = st.empty()
     options = ['Option A', 'Option B', 'Option C']
-    selected_option = st.selectbox('Select an option', options)
+    selected_option = question_placeholder.selectbox('Select an option', options)
 
-    if st.button('Refresh'):
+    if question_placeholder.button('Refresh'):
         selected_option = None
 
     if selected_option:
-        st.write('You selected:', selected_option)
+        question_placeholder.write('You selected:', selected_option)
