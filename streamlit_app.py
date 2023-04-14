@@ -11,6 +11,34 @@ import streamlit as st  # pip install streamlit
 st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide")
 
 
+# --- USER AUTHENTICATION ---
+
+# Define username and password
+CORRECT_USERNAME = "username"
+CORRECT_PASSWORD = "password"
+
+# Create a title and subheader
+st.title("Login Page")
+st.subheader("Enter your credentials to log in.")
+# st.header("Enter your credentials to log in.") #is bigger
+
+
+# Create input fields for username and password
+username = st.text_input('Username')
+password = st.text_input('Password', type='password')
+
+if st.button("Login"):
+    if username == CORRECT_USERNAME and password == CORRECT_PASSWORD:
+        st.success("You have successfully logged in.")
+        show_app=TRUE
+    else:
+        st.error('Invalid username or password')
+        show_app=FALSE
+else:
+    show_app=FALSE
+
+
+        
 # # --- USER AUTHENTICATION ---
 # names = ["Peter Parker", "Rebecca Miller"]
 # usernames = ["pparker", "rmiller"]
