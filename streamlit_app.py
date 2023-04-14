@@ -53,6 +53,7 @@ if show_question:
     st.sidebar.header("Sidebar")
     if st.sidebar.button("Logout"):
         logout()
+    st.subheader("How to use the app")
         
 # Add other widgets to the sidebar here
     st.sidebar.title(f"Welcome {CORRECT_USERNAME}")
@@ -70,9 +71,6 @@ if show_question:
         st.subheader("Welcome to the Pick me an outfit page")
     elif choice =="Give me some stats":
         st.subheader("Welcome to the Give me some stats page")
-    else:
-        st.subheader("How to use the app")
-
 
         
 # # --- USER AUTHENTICATION ---
