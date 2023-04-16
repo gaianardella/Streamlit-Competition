@@ -64,7 +64,7 @@ if 'login' in st.session_state:
             "Give me some stats": "bar-chart-fill",
             "Settings": "gear"
         }
-        option = st.selectbox("Main Menu", options=list(option_icons.keys()), index=0, format_func=lambda option: f"<i class='bi bi-{option_icons[option]}'></i> {option}", unsafe_allow_html=True)
+        option = st.selectbox("Main Menu", options=list(option_icons.keys()), index=0)
 
 #         selected = option_menu("Main Menu", ["Home", "Upload Clothes", "Pick me an outfit", "Give me some stats", "Settings"], 
 #             icons=['house', 'box-arrow-in-up', 'palette-fill', 'bar-chart-fill', 'gear'], menu_icon="cast", default_index=0)
