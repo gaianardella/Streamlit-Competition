@@ -66,8 +66,7 @@ if 'login' in st.session_state:
             "Give me some stats": "bar-chart-fill",
             "Settings": "gear"
            }
-
-           option = st.selectbox("Main Menu", options=list(option_icons.keys()), index=0, format_func=lambda option: f"<i class='bi bi-{option_icons[option]}'></i> {option}", unsafe_allow_html=True)
+        option = st.selectbox("Main Menu", options=list(option_icons.keys()), index=0, format_func=lambda option: f"<i class='bi bi-{option_icons[option]}'></i> {option}", unsafe_allow_html=True)
 
 
     # Display the selected page
