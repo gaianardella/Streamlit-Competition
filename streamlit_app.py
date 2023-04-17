@@ -127,7 +127,7 @@ if 'login' in st.session_state:
             # string_data = stringio.read()
             # st.write(string_data)
             if st.button("Submit Photo"):
-                if color_flag == True & item_flag == True
+                if color_flag == True & item_flag == True:
                     st.success("Photo Uploaded")
                 else:
                     st.error("Error")
