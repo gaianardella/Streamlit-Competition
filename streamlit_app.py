@@ -96,9 +96,9 @@ if 'login' in st.session_state:
             first_flag=False
                          
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
-            if st.button("Submit Color"):
-                st..write ("You selected: "+ colors_selected[::-1])
-#                 show_upload = True
+        if st.button("Submit Color"):
+            st..write ("You selected: "+ colors_selected[::-1])
+#             show_upload = True
         
             
         
