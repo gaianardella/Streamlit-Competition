@@ -96,9 +96,6 @@ if 'login' in st.session_state:
         # colors_to_show = my_color_list[colors_selected] #pandas.dataFrame.loc[source] Access a group of rows and columns by label(s) or a boolean array.
         # Display the table on the page.
         # st.dataframe(colors_to_show)
-        
-        if st.button("Submit Item"):
-            show_upload=True
     
         if show_upload:
             colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
