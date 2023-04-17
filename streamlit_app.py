@@ -106,10 +106,10 @@ if 'login' in st.session_state:
                         colors_string = colors_selected[0]
 
                     st.write("You selected: "+ colors_string)
-#                     second_flag = True
+                    second_flag = True
                     
-#                     st.write(first_flag)
-#                     st.write(second_flag)
+        st.write(first_flag)
+        st.write(second_flag)
 #         else:
 #             st.error("Select only one item")
                                 
