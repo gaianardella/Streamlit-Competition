@@ -106,6 +106,9 @@ if 'login' in st.session_state:
                 
                     st.write("You selected: "+ colors_string)
                     second_flag = True
+                    
+                    st.write(first_flag)
+                    st.write(second_flag)
         else:
             st.error("Select only one item")
                                 
@@ -117,8 +120,7 @@ if 'login' in st.session_state:
         # Display the table on the page.
         # st.dataframe(colors_to_show)
            
-        st.write(first_flag)
-        st.write(second_flag)
+        
         if first_flag == True & second_flag == True:
             #single file uploader (doesn't accept more than one file)
             uploaded_file = st.file_uploader("Choose a file")
