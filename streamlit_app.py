@@ -87,26 +87,25 @@ if 'login' in st.session_state:
         first_flag = False
         second_flag = False
         # Let's put a pick list here so they can pick the fruit they want to include
-        with st.expander("Select item"):
-            item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
-            if len(item_selected) == 1:
-                if st.button("Submit Item"):
-                    st.write("You selected :" + item_selected[0])
-                    first_flag=True
-        if first_flag == True:         
-            with st.expander("Select color"):
-                colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
-                if st.button("Submit Color"):
-                    if len(colors_selected)>1:
-                        # Join the colors with commas, except for the last on
-                        colors_string = ', '.join(colors_selected[:-1])
-                        # Add the last color to the string
-                        colors_string += ' and ' + colors_selected[-1]
-                    else:
-                        colors_string = colors_selected[0]
+        st.subheader("1) Pick Item")
+        item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
+        if len(item_selected) == 1:
+            if st.button("Submit Item"):
+                st.write("You selected :" + item_selected[0])
+                first_flag=True
+        st.subheader("2) Pick Color")   
+        colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
+        if st.button("Submit Color"):
+            if len(colors_selected)>1:
+                # Join the colors with commas, except for the last on
+                colors_string = ', '.join(colors_selected[:-1])
+                # Add the last color to the string
+                colors_string += ' and ' + colors_selected[-1]
+            else:
+                colors_string = colors_selected[0]
 
-                    st.write("You selected: "+ colors_string)
-                    second_flag = True
+            st.write("You selected: "+ colors_string)
+            second_flag = True
                     
         st.write(first_flag)
         st.write(second_flag)
