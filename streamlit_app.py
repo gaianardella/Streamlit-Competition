@@ -84,13 +84,15 @@ if 'login' in st.session_state:
         st.title("Upload your clothes")
         st.subheader("This is the Upload Clothes page.")
         
-       
+        item_flag=False
+        color_flag=False
         # Let's put a pick list here so they can pick the fruit they want to include
         st.subheader("1) Pick Item")
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
             if st.button("Submit Item"):
-                st.write("You selected :" + item_selected[0])
+                st.write("You selected: " + item_selected[0])
+                item_flag=True
         else:
             st.error("Select only one item")
                 
@@ -107,6 +109,7 @@ if 'login' in st.session_state:
                     colors_string = colors_selected[0]
                 # Write color string
                 st.write("You selected: "+ colors_string)
+                color_flag = True
         else:
             st.error("Insert Colors")
 
@@ -124,7 +127,11 @@ if 'login' in st.session_state:
             # string_data = stringio.read()
             # st.write(string_data)
             if st.button("Submit Photo"):
-                st.success("Photo Uploaded")
+                if color_flag == True & item_flag == True
+                    st.success("Photo Uploaded")
+                else:
+                    st.error("Error")
+                
 
     elif selected == "Pick me an outfit":
         st.title("Generate an outfit")
