@@ -97,12 +97,14 @@ if 'login' in st.session_state:
                          
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
         if st.button("Submit Color"):
-            str=''
-            for color in colors_selected:
-                str+=color
-                str+=', '
-            st.write(str)
-#             st.write ("You selected: "+ colors_selected[::-1])
+            # Join the colors with commas, except for the last on
+            colors_string = ', '.join(colors_selected[:-1])
+#             str=''
+#             for color in colors_selected:
+#                 str+=color
+#                 str+=', '
+#             st.write(str)
+            st.write ("You selected: "+ colors_string)
 #             show_upload = True
         
             
