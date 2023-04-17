@@ -84,60 +84,47 @@ if 'login' in st.session_state:
         st.title("Upload your clothes")
         st.subheader("This is the Upload Clothes page.")
         
-        first_flag = False
-        second_flag = False
+       
         # Let's put a pick list here so they can pick the fruit they want to include
         st.subheader("1) Pick Item")
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
             if st.button("Submit Item"):
                 st.write("You selected :" + item_selected[0])
-                first_flag=True
+        else:
+            st.error("Select only one item")
+                
         st.subheader("2) Pick Color")   
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
-        if st.button("Submit Color"):
-            if len(colors_selected)>1:
-                # Join the colors with commas, except for the last on
-                colors_string = ', '.join(colors_selected[:-1])
-                # Add the last color to the string
-                colors_string += ' and ' + colors_selected[-1]
-            else:
-                colors_string = colors_selected[0]
+        if len(colors_selected) > 0:
+            if st.button("Submit Color"):
+                if len(colors_selected)>1:
+                    # Join the colors with commas, except for the last on
+                    colors_string = ', '.join(colors_selected[:-1])
+                    # Add the last color to the string
+                    colors_string += ' and ' + colors_selected[-1]
+                else:
+                    colors_string = colors_selected[0]
+                # Write color string
+                st.write("You selected: "+ colors_string)
+        else:
+            st.error("Insert Colors")
 
-            st.write("You selected: "+ colors_string)
-            second_flag = True
-                    
-        st.write(first_flag)
-        st.write(second_flag)
-#         else:
-#             st.error("Select only one item")
-                                
-        
-        
-            
-        
-        # colors_to_show = my_color_list[colors_selected] #pandas.dataFrame.loc[source] Access a group of rows and columns by label(s) or a boolean array.
-        # Display the table on the page.
-        # st.dataframe(colors_to_show)
-           
-        
-        if first_flag == True & second_flag == True:
-            #single file uploader (doesn't accept more than one file)
-            uploaded_file = st.file_uploader("Choose a file")
-            if uploaded_file is not None:
-                # To read file as bytes:
-                bytes_data = uploaded_file.getvalue()
-                st.write(bytes_data)
-                # To convert to a string based IO:
-                stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-                # st.write(stringio)
-                # # To read file as string:
-                # string_data = stringio.read()
-                # st.write(string_data)
-
-            # # Can be used wherever a "file-like" object is accepted:
-            # dataframe = pd.read_csv(uploaded_file)
-            # st.write(dataframe)
+        st.subheader("2) Upload Photo")  
+        #single file uploader (doesn't accept more than one file)
+        uploaded_file = st.file_uploader("Choose a file")
+        if uploaded_file is not None:
+            # To read file as bytes:
+            bytes_data = uploaded_file.getvalue()
+            st.write(bytes_data)
+            # To convert to a string based IO:
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+            # st.write(stringio)
+            # # To read file as string:
+            # string_data = stringio.read()
+            # st.write(string_data)
+            if st.button("Submit Photo"):
+                st.success("Photo Uploaded")
 
     elif selected == "Pick me an outfit":
         st.title("Generate an outfit")
