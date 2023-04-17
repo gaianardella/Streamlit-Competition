@@ -85,6 +85,7 @@ if 'login' in st.session_state:
         st.subheader("This is the Upload Clothes page.")
         
         first_flag = False
+        second_flag = False
         # Let's put a pick list here so they can pick the fruit they want to include 
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
@@ -93,7 +94,6 @@ if 'login' in st.session_state:
                 first_flag=True
         else:
             st.error("Select only one item")
-            first_flag=False
                          
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
         if st.button("Submit Color"):
@@ -105,9 +105,9 @@ if 'login' in st.session_state:
                 colors_string += ' and ' + colors_selected[-1]
             else:
                 colors_string = colors_selected[0]
-#        
-            st.write ("You selected: "+ colors_string)
-#             show_upload = True
+                
+            st.write("You selected: "+ colors_string)
+            second_flag = True
         
             
         
@@ -115,9 +115,7 @@ if 'login' in st.session_state:
         # Display the table on the page.
         # st.dataframe(colors_to_show)
     
-            
-        show_upload = False
-        if show_upload:
+        if first_flag == True & second_flag == True:
             #single file uploader (doesn't accept more than one file)
             uploaded_file = st.file_uploader("Choose a file")
             if uploaded_file is not None:
