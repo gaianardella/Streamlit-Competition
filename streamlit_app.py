@@ -114,7 +114,9 @@ if 'login' in st.session_state:
         # colors_to_show = my_color_list[colors_selected] #pandas.dataFrame.loc[source] Access a group of rows and columns by label(s) or a boolean array.
         # Display the table on the page.
         # st.dataframe(colors_to_show)
-    
+           
+        st.write(first_flag)
+        st.write(second_flag)
         if first_flag == True & second_flag == True:
             #single file uploader (doesn't accept more than one file)
             uploaded_file = st.file_uploader("Choose a file")
