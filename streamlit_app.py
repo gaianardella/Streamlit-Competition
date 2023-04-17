@@ -90,7 +90,7 @@ if 'login' in st.session_state:
         if len(item_selected) == 1:
             if st.button("Submit Item"):
                 st.write("You selected :" + item_selected[0]
-                first_flag=True
+#                 first_flag=True
 #         else:
 #             st.error("Select only one item")
 #             first_flag=False
