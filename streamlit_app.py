@@ -84,21 +84,24 @@ if 'login' in st.session_state:
         st.title("Upload your clothes")
         st.subheader("This is the Upload Clothes page.")
         
-#         first_flag = False
+        first_flag = False
         # Let's put a pick list here so they can pick the fruit they want to include 
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
             if st.button("Submit Item"):
-                st.write("You selected :" + item_selected[0]
-#                 first_flag=True
-#         else:
-#             st.error("Select only one item")
-#             first_flag=False
-            
+                st.write("You selected :" + item_selected[0])
+                first_flag=True
+        else:
+            st.error("Select only one item")
+            first_flag=False
+                         
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
             if st.button("Submit Color"):
-                 st..write ("You selected: "+ colors_selected[::-1])
+                st..write ("You selected: "+ colors_selected[::-1])
 #                 show_upload = True
+        
+            
+        
         # colors_to_show = my_color_list[colors_selected] #pandas.dataFrame.loc[source] Access a group of rows and columns by label(s) or a boolean array.
         # Display the table on the page.
         # st.dataframe(colors_to_show)
