@@ -84,35 +84,37 @@ if 'login' in st.session_state:
         st.title("Upload your clothes")
         st.subheader("This is the Upload Clothes page.")
         
-        item_flag=False
-        color_flag=False
+        flag=False
         # Let's put a pick list here so they can pick the fruit they want to include
         st.subheader("1) Pick Item")
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
-            if st.button("Submit Item"):
-                st.write("You selected: " + item_selected[0])
-                item_flag=True
+#             if st.button("Submit Item"):
+            st.write("You selected: " + item_selected[0])
+    
         else:
             st.error("Select only one item")
                 
         st.subheader("2) Pick Color")   
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
         if len(colors_selected) > 0:
-            if st.button("Submit Color"):
-                if len(colors_selected)>1:
-                    # Join the colors with commas, except for the last on
-                    colors_string = ', '.join(colors_selected[:-1])
-                    # Add the last color to the string
-                    colors_string += ' and ' + colors_selected[-1]
-                else:
-                    colors_string = colors_selected[0]
-                # Write color string
-                st.write("You selected: "+ colors_string)
-                color_flag = True
+#             if st.button("Submit Color"):
+            if len(colors_selected)>1:
+                # Join the colors with commas, except for the last on
+                colors_string = ', '.join(colors_selected[:-1])
+                # Add the last color to the string
+                colors_string += ' and ' + colors_selected[-1]
+            else:
+                colors_string = colors_selected[0]
+            # Write color string
+            st.write("You selected: "+ colors_string)
+                
         else:
             st.error("Insert Colors")
-
+        
+        if st.button("Submit Item and Colors"):
+            flag=True
+        
         st.subheader("3) Upload Photo")  
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
@@ -127,10 +129,10 @@ if 'login' in st.session_state:
             # string_data = stringio.read()
             # st.write(string_data)
             if st.button("Submit Photo"):
-                if color_flag == True & item_flag == True:
-                    st.success("Photo Uploaded")
-                else:
-                    st.error("Error")
+                st.write(flag)
+#                 st.success("Photo Uploaded")
+#                 else:
+#                     st.error("Error")
                 
 
     elif selected == "Pick me an outfit":
