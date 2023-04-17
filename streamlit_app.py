@@ -84,7 +84,7 @@ if 'login' in st.session_state:
         st.title("Upload your clothes")
         st.subheader("This is the Upload Clothes page.")
         
-        first_flag = False
+#         first_flag = False
         # Let's put a pick list here so they can pick the fruit they want to include 
         item_selected = st.multiselect("Pick item:", list(my_item_list), ['Sweater'])
         if len(item_selected) == 1:
