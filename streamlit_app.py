@@ -91,9 +91,9 @@ if 'login' in st.session_state:
             if st.button("Submit Item"):
                 st.write("You selected :" + item_selected[0]
                 first_flag=True
-        else:
-            st.error("Select only one item")
-            first_flag=False
+#         else:
+#             st.error("Select only one item")
+#             first_flag=False
             
         colors_selected = st.multiselect("What color is the item:", list(my_color_list), ['Blue','Red'])
             if st.button("Submit Color"):
