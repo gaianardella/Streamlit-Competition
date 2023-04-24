@@ -132,9 +132,24 @@ if 'login' in st.session_state:
                 if len(item_selected) == 1 and len(colors_selected)>0:   
                     st.success("Photo Uploaded")
                     
-                    my_cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
-                    #qui devo salvare dato su snowflake
-                    my_cnx.close()
+                    # Convert the uploaded photo to a binary format
+                    #usare bytes_data
+#                     with open(uploaded_file_path, "rb") as f:
+#                         photo_data = base64.b64encode(f.read()).decode("utf-8")
+                    
+
+                    # Establish a connection to your Snowflake database
+                    cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+
+                    # Prepare a SQL query to insert the photo data into the appropriate table
+#                     query = f"INSERT INTO your_table (photo_column) VALUES ('{photo_data}')"
+                    query = f"INSERT INTO clothes_table (photo_column) VALUES ('{bytes_data}')"
+
+                    # Execute the SQL query using the established connection and the photo data
+                    cnx.cursor().execute(query)
+
+                    # Close the database connection
+                    cnx.close()
 
 # streamlit.stop() #to troubleshoot
                 else:
