@@ -143,7 +143,19 @@ if 'login' in st.session_state:
 
                     # Prepare a SQL query to insert the photo data into the appropriate table
 #                     query = f"INSERT INTO your_table (photo_column) VALUES ('{photo_data}')"
-                    query = f"INSERT INTO clothes_table (item_column, type) VALUES ('{bytes_data}', '{item_selected}')"
+
+#                     query = f"INSERT INTO clothes_table (item_column, type) VALUES ('{bytes_data}', '{item_selected}')"
+                    
+                    # Prepare a SQL query to insert the photo data and colors into the appropriate table
+                    # Use a dynamic SQL query to generate the appropriate number of columns based on the length of the colors_selected list
+                    query = "INSERT INTO clothes_table (item_column, type"
+                    for i in range(len(colors_selected)):
+                        query += f", color{i+1}"
+                    query += ") VALUES ('{bytes_data}', '{item_selected}'"
+                    for color in colors_selected:
+                        query += f", '{color}'"
+                    query += ")"
+#                     cnx.cursor().execute(query)
 
                     # Execute the SQL query using the established connection and the photo data
                     cnx.cursor().execute(query)
