@@ -126,11 +126,20 @@ if 'login' in st.session_state:
             # # To read file as string:
             # string_data = stringio.read()
             # st.write(string_data)
+            
+            #Add a button to load the photo
             if st.button("Submit Photo"):
                 if len(item_selected) == 1 and len(colors_selected)>0:   
                     st.success("Photo Uploaded")
+                    
+                    my_cnx=snowflake.connector.connect(**streamlit.secrets["snowflake"])
+                    #qui devo salvare dato su snowflake
+                    my_cnx.close()
+
+# streamlit.stop() #to troubleshoot
                 else:
                     st.error("Error")
+            
                 
 
     elif selected == "Pick me an outfit":
@@ -219,3 +228,4 @@ if 'login' in st.session_state:
     elif selected == "Settings":
         st.title("Settings")
         st.subheader("This is the Settings page.")
+        
