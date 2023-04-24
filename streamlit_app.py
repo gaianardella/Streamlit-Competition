@@ -143,7 +143,7 @@ if 'login' in st.session_state:
 
                     # Prepare a SQL query to insert the photo data into the appropriate table
 #                     query = f"INSERT INTO your_table (photo_column) VALUES ('{photo_data}')"
-                    query = f"INSERT INTO clothes_table (photo_column) VALUES ('{bytes_data}')"
+                    query = f"INSERT INTO clothes_table (item_column) VALUES ('{bytes_data}')"
 
                     # Execute the SQL query using the established connection and the photo data
                     cnx.cursor().execute(query)
