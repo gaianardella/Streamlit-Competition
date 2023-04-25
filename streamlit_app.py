@@ -6,8 +6,6 @@ from PIL import Image
 import snowflake.connector
 # from urllib.error import URLError
 
-st.set_option('server.address', 'ev58368.eu-west-1.aws.snowflakecomputing.com')
-
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
 st.set_page_config(page_title="A Cloud Closet", page_icon=":dress:", layout="wide")
 
