@@ -4,6 +4,7 @@ import pandas as pd
 from io import StringIO
 from PIL import Image
 import snowflake.connector
+import uuid
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -147,13 +148,21 @@ if 'login' in st.session_state:
 #                     query = f"INSERT INTO your_table (photo_column) VALUES ('{photo_data}')"
 
 #                     query = f"INSERT INTO clothes_table (item_column, type) VALUES ('{bytes_data}', '{item_selected}')"
+
+                    # make a random UUID
+                    id=uuid.uuid4()
+                    # Convert a UUID to a string of hex digits in standard form
+#                     str(uuid.uuid4())
+                    # Convert a UUID to a 32-character hexadecimal string
+#                     uuid.uuid4().hex
+                    id=id.hex
                     
                     # Prepare a SQL query to insert the photo data and colors into the appropriate table
                     # Use a dynamic SQL query to generate the appropriate number of columns based on the length of the colors_selected list
-                    query = "INSERT INTO clothes_table (item_column, type"
+                    query = "INSERT INTO clothes_table (id, item, type"
                     for i in range(len(colors_selected)):
                         query += f", color{i+1}"
-                    query += ") VALUES ('{bytes_data}', '{item_selected}'"
+                    query += ") VALUES ('{id}', '{bytes_data}', '{item_selected}'"
                     for color in colors_selected:
                         query += f", '{color}'"
                     query += ")"
