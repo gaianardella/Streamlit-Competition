@@ -141,7 +141,7 @@ if 'login' in st.session_state:
                     
 
                     # Establish a connection to your Snowflake database
-                    cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+                    cnx = snowflake.connector.connect(**st.secrets["snowflake"])
 
                     # Prepare a SQL query to insert the photo data into the appropriate table
 #                     query = f"INSERT INTO your_table (photo_column) VALUES ('{photo_data}')"
