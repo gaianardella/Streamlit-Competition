@@ -156,6 +156,8 @@ if 'login' in st.session_state:
                     # Convert a UUID to a 32-character hexadecimal string
 #                     uuid.uuid4().hex
                     id=id.hex
+                    st.write(id)
+                    st.stop()
                     
                     # Prepare a SQL query to insert the photo data and colors into the appropriate table
                     # Use a dynamic SQL query to generate the appropriate number of columns based on the length of the colors_selected list
