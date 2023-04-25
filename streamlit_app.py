@@ -121,21 +121,21 @@ if 'login' in st.session_state:
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
             # To read file as bytes:
-#             bytes_data = uploaded_file.getvalue()
-            bytes_data = uploaded_file.read()
-            try:        
-                encoding = 'gb18030'
-                s=str(bytes_data,encoding)
+            bytes_data = uploaded_file.getvalue()
+#             bytes_data = uploaded_file.read()
+#             try:        
+#                 encoding = 'gb18030'
+#                 s=str(bytes_data,encoding)
 
-            except:
-                encoding = 'utf-16-le' 
-                s=str(bytes_data,encoding)
+#             except:
+#                 encoding = 'utf-16-le' 
+#                 s=str(bytes_data,encoding)
 
-            data = StringIO(s)
-            st.write(data)
+#             data = StringIO(s)
+#             st.write(data)
             # To convert to a string based IO:
-#             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-#             st.write(stringio)
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+            st.write(stringio)
             # To read file as string:
 #             string_data = stringio.read()
 #             st.write(string_data)
