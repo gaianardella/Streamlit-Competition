@@ -124,11 +124,11 @@ if 'login' in st.session_state:
             bytes_data = uploaded_file.getvalue()
 #             st.write(bytes_data)
             # To convert to a string based IO:
-#             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-            # st.write(stringio)
-            # # To read file as string:
-            # string_data = stringio.read()
-            # st.write(string_data)
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+            st.write(stringio)
+            # To read file as string:
+            string_data = stringio.read()
+            st.write(string_data)
             
             #Add a button to load the photo
             if st.button("Submit Photo"):
@@ -157,7 +157,7 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
                     id=id.hex
                     st.write(id)
-            
+                    st.stop()
                     with cnx.cursor() as my_cur:
                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
                     st.stop()
