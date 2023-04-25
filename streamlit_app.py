@@ -5,6 +5,7 @@ from io import StringIO
 from PIL import Image
 import snowflake.connector
 import uuid
+import chardet
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -123,8 +124,9 @@ if 'login' in st.session_state:
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
             bytes_data = uploaded_file.read()
-            string_data = bytes_data.decode('utf-8')
-            st.write(string_data)
+            detected_encoding = chardet.detect(bytes_data)['encoding']
+#             text_data = bytes_data.decode(detected_encoding)
+            st.write(detected_encoding)
             # To convert to a string based IO:
 #             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
 #             st.write(stringio)
