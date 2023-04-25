@@ -123,7 +123,8 @@ if 'login' in st.session_state:
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
             bytes_data = uploaded_file.read()
-            st.write(bytes_data)
+            string_data = bytes_data.decode('UTF-8')
+            st.write(string_data)
 #             try:        
 #                 encoding = 'gb18030'
 #                 s=str(bytes_data,encoding)
