@@ -157,7 +157,11 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
                     id=id.hex
                     st.write(id)
-#                     st.stop()
+            
+                    with cnx.cursor() as my_cur:
+                        my_cur.execute("insert into clothes_table values ('{id}', '{bytes_data}', '{item_selected}')")
+                    st.stop()
+                    query = "INSERT INTO clothes_table (id, item, type) VALUES ('{id}', '{bytes_data}', '{item_selected}')"
                     
                     # Prepare a SQL query to insert the photo data and colors into the appropriate table
                     # Use a dynamic SQL query to generate the appropriate number of columns based on the length of the colors_selected list
