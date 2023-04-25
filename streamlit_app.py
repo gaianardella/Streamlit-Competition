@@ -124,9 +124,16 @@ if 'login' in st.session_state:
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
             bytes_data = uploaded_file.read()
-            detected_encoding = chardet.detect(bytes_data)['encoding']
-#             text_data = bytes_data.decode(detected_encoding)
-            st.write(detected_encoding)
+            try:        
+                encoding = 'gb18030'
+                s=str(bytes_data,encoding)
+
+            except:
+                encoding = 'utf-16-le' 
+                s=str(bytes_data,encoding)
+
+            data = StringIO(s)
+            st.write(data)
             # To convert to a string based IO:
 #             stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
 #             st.write(stringio)
