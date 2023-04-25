@@ -159,7 +159,7 @@ if 'login' in st.session_state:
                     st.write(id)
             
                     with cnx.cursor() as my_cur:
-                        my_cur.execute("insert into clothes_table values ('{id}', '{bytes_data}', '{item_selected}')")
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "'))
                     st.stop()
                     query = "INSERT INTO clothes_table (id, item, type) VALUES ('{id}', '{bytes_data}', '{item_selected}')"
                     
