@@ -5,7 +5,6 @@ from io import StringIO
 from PIL import Image
 import snowflake.connector
 import uuid
-import chardet
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
