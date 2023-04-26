@@ -122,9 +122,26 @@ if 'login' in st.session_state:
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
             
+            
+            # To convert to a string based IO:
+            stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
+            st.write(stringio)
+
+            # To read file as string:
+            string_data = stringio.read()
+
+            
+            
+            
+            
+            
+            
+            
+            
+            
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
-            bytes_data = uploaded_file.read()
+#             bytes_data = uploaded_file.read()
 #             string_data = bytes_data.decode('UTF-8')
 #             st.write(bytes_data)
             
@@ -172,7 +189,6 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
                     id=id.hex
                     st.write(id)
-                    st.write(str(bytes_data))
                     st.stop()
                     with cnx.cursor() as my_cur:
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
