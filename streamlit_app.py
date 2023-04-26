@@ -124,8 +124,8 @@ if 'login' in st.session_state:
         if uploaded_file is not None:
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
-            bytes_data = uploaded_file.read()
-            string_data = bytes_data.decode('UTF-8')
+#             bytes_data = uploaded_file.read()
+#             string_data = bytes_data.decode('UTF-8')
             
             
             sql=to_binary(base64.b64encode(requests.get(uploaded_file).content).decode('ascii'), 'BASE64')
