@@ -175,7 +175,7 @@ if 'login' in st.session_state:
 #                     st.stop()
                     with cnx.cursor() as my_cur:
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
-                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +str(bytes_data)+ "', '" +item_selected+ "')")
                                   
                         
                         
