@@ -125,10 +125,11 @@ if 'login' in st.session_state:
             
             # To convert to a string based IO:
             stringio = StringIO(uploaded_file.getvalue().decode("iso-8859-1"))
-            st.write(stringio)
+#             st.write(stringio)
 
             # To read file as string:
             string_data = stringio.read()
+            st.write(string_data)
 
             
             
