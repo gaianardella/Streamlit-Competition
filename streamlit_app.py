@@ -121,17 +121,13 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            with open(uploaded_file, "rb") as image_file:
-                image_bytes = image_file.read()
-            image_base64 = base64.b64encode(image_bytes).decode("utf-8")
+            
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
-#             bytes_data = uploaded_file.read()
+            bytes_data = uploaded_file.read()
 #             string_data = bytes_data.decode('UTF-8')
+            st.write(bytes_data)
             
-            
-#             sql=base64.b64encode(uploaded_file.content).decode('ascii')
-#             st.write(sql)
 #             try:        
 #                 encoding = 'gb18030'
 #                 s=str(bytes_data,encoding)
