@@ -6,6 +6,7 @@ from PIL import Image
 import snowflake.connector
 import uuid
 import base64
+import io
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
