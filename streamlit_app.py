@@ -5,6 +5,8 @@ from io import StringIO
 from PIL import Image
 import snowflake.connector
 import uuid
+import base64
+import requests
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -124,7 +126,10 @@ if 'login' in st.session_state:
 #             bytes_data = uploaded_file.getvalue()
             bytes_data = uploaded_file.read()
             string_data = bytes_data.decode('UTF-8')
-            st.write(string_data)
+            
+            
+            sql=to_binary(base64.b64encode(requests.get(uploaded_file).content).decode('ascii'), 'BASE64'))
+            st.write(sql)
 #             try:        
 #                 encoding = 'gb18030'
 #                 s=str(bytes_data,encoding)
