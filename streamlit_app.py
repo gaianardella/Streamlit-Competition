@@ -126,7 +126,7 @@ if 'login' in st.session_state:
 #             bytes_data = uploaded_file.getvalue()
             bytes_data = uploaded_file.read()
 #             string_data = bytes_data.decode('UTF-8')
-            st.write(bytes_data)
+#             st.write(bytes_data)
             
 #             try:        
 #                 encoding = 'gb18030'
@@ -174,7 +174,14 @@ if 'login' in st.session_state:
                     st.write(id)
                     st.stop()
                     with cnx.cursor() as my_cur:
-                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
+#                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +HEXTORAW(bytes_data)+ "', '" +item_selected+ "')")
+                                  
+                        
+                        
+                        
+                        
+                        
                     st.stop()
                     query = "INSERT INTO clothes_table (id, item, type) VALUES ('{id}', '{bytes_data}', '{item_selected}')"
                     
