@@ -6,7 +6,6 @@ from PIL import Image
 import snowflake.connector
 import uuid
 import base64
-import requests
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -122,6 +121,9 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
+            with open(uploaded_file, "rb") as image_file:
+                image_bytes = image_file.read()
+            image_base64 = base64.b64encode(image_bytes).decode("utf-8")
             # To read file as bytes:
 #             bytes_data = uploaded_file.getvalue()
 #             bytes_data = uploaded_file.read()
