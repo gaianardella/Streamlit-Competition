@@ -128,7 +128,7 @@ if 'login' in st.session_state:
 #             string_data = bytes_data.decode('UTF-8')
             
             
-            sql=base64.b64encode(requests.get(uploaded_file).content).decode('ascii')
+            sql=base64.b64encode(uploaded_file.content).decode('ascii')
             st.write(sql)
 #             try:        
 #                 encoding = 'gb18030'
