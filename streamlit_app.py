@@ -9,6 +9,7 @@ import base64
 import io
 import os
 from PIL import Image
+import pandas as pd
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -124,10 +125,15 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-           # Convert image base64 string into hex 
+            # Convert image base64 string into hex 
             bytes_data_in_hex = uploaded_file.getvalue().hex()
-            st.write(bytes_data_in_hex)
             
+             # Generate new image file name
+            file_name = 'img_' + str(uuid.uuid4())
+            # Write image data in Snowflake table
+            df = pd.DataFrame({"FILE_NAME": [file_name], "IMAGE_BYTES": [bytes_data_in_hex]})
+            session.write_pandas(df, "IMAGES")
+
             
             st.stop()
 
