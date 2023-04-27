@@ -128,6 +128,7 @@ if 'login' in st.session_state:
             bytes_data = uploaded_file.getvalue()
             # Assuming the byte string is stored in a variable called 'data'
             img = Image.open(io.BytesIO(bytes_data))
+            st.write(img)
             img.show()
             
             
