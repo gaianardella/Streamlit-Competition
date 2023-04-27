@@ -122,11 +122,15 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            
-            # create a file-like object from the uploaded file data
-            file_object = io.BytesIO(uploaded_file.getvalue())
-            st.write(file_object)
-            
+            bytes_data = uploaded_file.read()
+
+            # create a file-like object from the raw image bytes
+            img_file1 = io.BytesIO(bytes_data)
+            st.write(img_file1)
+
+            # read the image data using imread
+            img1 = mpimg.imread(img_file1, format='jpg')
+            st.write(img1)
             
             
             st.stop()
