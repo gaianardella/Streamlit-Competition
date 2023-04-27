@@ -8,6 +8,7 @@ import uuid
 import base64
 import io
 import os
+from PIL import Image
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -125,7 +126,9 @@ if 'login' in st.session_state:
         if uploaded_file is not None:
             # To read file as bytes:
             bytes_data = uploaded_file.getvalue()
-            st.write(bytes_data)
+            # Assuming the byte string is stored in a variable called 'data'
+            img = Image.open(io.BytesIO(bytes_data))
+            img.show()
             
             
             st.stop()
