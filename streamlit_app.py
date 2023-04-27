@@ -129,7 +129,8 @@ if 'login' in st.session_state:
             # Assuming the byte string is stored in a variable called 'data'
             img = Image.open(io.BytesIO(bytes_data))
             st.write(img)
-            img.show()
+            byte_string = img.tobytes()
+            st.write(byte_string)
             
             
             st.stop()
