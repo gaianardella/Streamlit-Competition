@@ -7,6 +7,7 @@ import snowflake.connector
 import uuid
 import base64
 import io
+import matplotlib.image as mpimg
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
