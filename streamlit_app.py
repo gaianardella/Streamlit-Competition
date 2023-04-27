@@ -10,6 +10,7 @@ import io
 import os
 from PIL import Image
 import pandas as pd
+from snowflake.snowpark import Session
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -123,8 +124,12 @@ if 'login' in st.session_state:
         
         st.subheader("3) Upload Photo")  
         #single file uploader (doesn't accept more than one file)
+        
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
+            session = Session.builder.configs(**st.secrets["snowflake"]).create()
+            
+            
             # Convert image base64 string into hex 
             bytes_data_in_hex = uploaded_file.getvalue().hex()
             
@@ -133,7 +138,9 @@ if 'login' in st.session_state:
             # Write image data in Snowflake table
             df = pd.DataFrame({"FILE_NAME": [file_name], "IMAGE_BYTES": [bytes_data_in_hex]})
             session.write_pandas(df, "IMAGES")
-
+            
+          
+            
             
             st.stop()
 
