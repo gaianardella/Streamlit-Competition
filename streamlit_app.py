@@ -124,13 +124,9 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            # To read file as bytes:
-            bytes_data = uploaded_file.getvalue()
-            # Assuming the byte string is stored in a variable called 'data'
-            img = Image.open(io.BytesIO(bytes_data))
-            st.write(img)
-            byte_string = img.tobytes()
-            st.write(byte_string)
+           # Convert image base64 string into hex 
+            bytes_data_in_hex = uploaded_file.getvalue().hex()
+            st.write(bytes_data_in_hex)
             
             
             st.stop()
