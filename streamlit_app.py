@@ -7,7 +7,7 @@ import snowflake.connector
 import uuid
 import base64
 import io
-import matplotlib.image as mpimg
+# import matplotlib.image as mpimg
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -128,10 +128,6 @@ if 'login' in st.session_state:
             # create a file-like object from the raw image bytes
             img_file1 = io.BytesIO(bytes_data)
             st.write(img_file1)
-
-            # read the image data using imread
-            img1 = mpimg.imread(img_file1, format='jpg')
-            st.write(img1)
             
             
             st.stop()
