@@ -122,6 +122,8 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
+            st.write(uploaded_file)
+            st.stop()
             # create a file-like object from the uploaded file data
             file_object = io.BytesIO(uploaded_file.getvalue())
 
