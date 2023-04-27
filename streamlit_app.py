@@ -122,19 +122,17 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            
-            # Assume 'uploaded_file' is a BytesIO object with binary data
-            text_stream = io.TextIOWrapper(uploaded_file, encoding='utf-8')
+            # create a file-like object from the uploaded file data
+            file_object = io.BytesIO(uploaded_file.getvalue())
 
-            # Read the decoded text from the stream
-            decoded_text = text_stream.read()
+            # use the file object instead of the path
+            with open(file_object, encoding="utf8", errors='ignore') as f:
+                decoded_contents = f.read().decode()
 
+                # print the decoded contents
+                st.write(decoded_contents)
             
-            
-            
-            
-            
-            
+
             
             
             # To read file as bytes:
