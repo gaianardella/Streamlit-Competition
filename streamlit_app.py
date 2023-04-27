@@ -7,6 +7,7 @@ import snowflake.connector
 import uuid
 import base64
 import io
+import os
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
@@ -122,12 +123,9 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            bytes_data = uploaded_file.read()
-
-            # create a file-like object from the raw image bytes
-            file_stream = io.BytesIO(bytes_data)
-            file_string = file_stream.getvalue().decode('utf-8')
-            st.write(file_string)
+            file_name = uploaded_file.name
+            file_path = os.path.join(os.getcwd(), file_name)
+            st.write(f"You selected '{file_path}'")
             
             
             st.stop()
