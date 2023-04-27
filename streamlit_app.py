@@ -122,10 +122,14 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            st.write(uploaded_file)
-            st.stop()
+            
             # create a file-like object from the uploaded file data
             file_object = io.BytesIO(uploaded_file.getvalue())
+            st.write(file_object)
+            
+            
+            
+            st.stop()
 
             # use the file object instead of the path
             with open(file_object, encoding="utf8", errors='ignore') as f:
