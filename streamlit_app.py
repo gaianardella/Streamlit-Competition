@@ -123,9 +123,9 @@ if 'login' in st.session_state:
         #single file uploader (doesn't accept more than one file)
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            file_name = uploaded_file.name
-            file_path = os.path.join(os.getcwd(), file_name)
-            st.write(f"You selected '{file_path}'")
+            # To read file as bytes:
+            bytes_data = uploaded_file.getvalue()
+            st.write(bytes_data)
             
             
             st.stop()
