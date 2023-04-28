@@ -10,6 +10,7 @@ import io
 import os
 from PIL import Image
 import pandas as pd
+
 # from snowflake.snowpark.session import Session
 # from urllib.error import URLError
 
@@ -191,9 +192,10 @@ if 'login' in st.session_state:
                     # Convert a UUID to a 32-character hexadecimal string
 #                     uuid.uuid4().hex
 #                     id=id.hex
-#                     with cnx.cursor() as my_cur:
+                    with cnx.cursor() as my_cur:
+                        my_cur.execute("insert into clothes_table values ('" +"1"+ "', '" +bytes_data_in_hex+ "', '" +item_selected+ "')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
-#                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +item_selected+ "')")
+#                         
                                   
                         
                         
