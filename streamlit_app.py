@@ -10,7 +10,8 @@ import io
 import os
 from PIL import Image
 import pandas as pd
-from snowflake.snowpark.session import Session
+# from snowflake.snowpark.session import Session
+from snowflake.snowpark.functions import avg
 # from urllib.error import URLError
 
 # emojis: https://www.webfx.com/tools/emoji-cheat-sheet/
