@@ -194,7 +194,7 @@ if 'login' in st.session_state:
                         my_cur.execute("insert into clothes_table values ('" +str(id)+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
                         my_cur.execute("select * from clothes_table")
-                        byte_array=my_cur.fetchall()[0][1]
+                        byte_array=my_cur.fetchall()
                         st.write(byte_array)
                         st.stop()
                 
