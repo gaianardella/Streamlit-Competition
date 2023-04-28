@@ -184,16 +184,14 @@ if 'login' in st.session_state:
 
                     # make a random UUID
                     id=uuid.uuid4()
-                    st.write(str(type(id)))
-                    st.write(str(type(bytes_data_in_hex)))
-                    st.write(str(type(item_selected)))
+
                     # Convert a UUID to a string of hex digits in standard form
 #                     str(uuid.uuid4())
                     # Convert a UUID to a 32-character hexadecimal string
 #                     uuid.uuid4().hex
 #                     id=id.hex
                     with cnx.cursor() as my_cur:
-                        my_cur.execute("insert into clothes_table values ('" +"1"+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "')")
+                        my_cur.execute("insert into clothes_table values ('" +str(id)+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
                         my_cur.execute("select * from clothes_table")
                         byte_array=my_cur.fetchall()[0][1]
