@@ -195,7 +195,9 @@ if 'login' in st.session_state:
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
                         my_cur.execute("select * from clothes_table")
                         byte_array=my_cur.fetchall()[0][1]
-        
+                        st.write(byte_array)
+                        st.stop()
+                
                         # assuming you have a bytearray object called 'byte_array'
                         image = Image.open(io.BytesIO(byte_array))
                         st.image(image)
