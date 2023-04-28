@@ -128,31 +128,16 @@ if 'login' in st.session_state:
         
         uploaded_file = st.file_uploader("Choose a file")
         if uploaded_file is not None:
-            session = Session.builder.configs(**st.secrets["snowflake"]).create()
-            
-            
+#             session = Session.builder.configs(**st.secrets["snowflake"]).create()
+           
             # Convert image base64 string into hex 
             bytes_data_in_hex = uploaded_file.getvalue().hex()
             
              # Generate new image file name
-            file_name = 'img_' + str(uuid.uuid4())
-            # Write image data in Snowflake table
-            df = pd.DataFrame({"FILE_NAME": [file_name], "IMAGE_BYTES": [bytes_data_in_hex]})
-            session.write_pandas(df, "IMAGES")
-            
-          
-            
-            
-            st.stop()
-
-            # use the file object instead of the path
-            with open(file_object, encoding="utf8", errors='ignore') as f:
-                decoded_contents = f.read().decode()
-
-                # print the decoded contents
-                st.write(decoded_contents)
-            
-
+#             file_name = 'img_' + str(uuid.uuid4())
+#             # Write image data in Snowflake table
+#             df = pd.DataFrame({"FILE_NAME": [file_name], "IMAGE_BYTES": [bytes_data_in_hex]})
+#             session.write_pandas(df, "IMAGES")
             
             
             # To read file as bytes:
@@ -203,12 +188,10 @@ if 'login' in st.session_state:
 #                     str(uuid.uuid4())
                     # Convert a UUID to a 32-character hexadecimal string
 #                     uuid.uuid4().hex
-                    id=id.hex
-                    st.write(id)
-                    st.stop()
+#                     id=id.hex
                     with cnx.cursor() as my_cur:
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
-                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +str(bytes_data)+ "', '" +item_selected+ "')")
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +item_selected+ "')")
                                   
                         
                         
