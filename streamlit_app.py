@@ -195,6 +195,9 @@ if 'login' in st.session_state:
                     with cnx.cursor() as my_cur:
                         my_cur.execute("insert into clothes_table values ('" +"1"+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
+                        result = my_cur.fetchone()
+                        bytes_data = result[0]
+                        st.write(bytes_data)
 #                         
                                   
                         
