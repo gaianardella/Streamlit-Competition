@@ -196,7 +196,6 @@ if 'login' in st.session_state:
                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "', '" +colors_string+"')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
 #                         my_cur.execute("SELECT * FROM clothes_table WHERE id = %s", (id,))
-                        st.write(colors_json)
                         my_cur.execute("SELECT * FROM clothes_table")
                         byte_array=my_cur.fetchall()
                         for el in byte_array:
@@ -204,7 +203,7 @@ if 'login' in st.session_state:
                                 byte_array=el[1]
                                 item=el[2]
                                 colors=el[3]
-                                st.write(list(colors))
+                  
                                 image = Image.open(io.BytesIO(byte_array))
                                 st.image(image)
 #                         
