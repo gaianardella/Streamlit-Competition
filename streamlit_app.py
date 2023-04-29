@@ -204,7 +204,7 @@ if 'login' in st.session_state:
                                 byte_array=el[1]
                                 item=el[2]
                                 colors=el[3]
-                                st.write(type(colors))
+                                st.write(list(colors))
                                 image = Image.open(io.BytesIO(byte_array))
                                 st.image(image)
 #                         
