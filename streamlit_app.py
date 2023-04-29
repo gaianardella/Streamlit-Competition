@@ -191,8 +191,6 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
 #                     id=id.hex
                     with cnx.cursor() as my_cur:
-                        st.write(str(colors_selected))
-                        st.stop()
                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "', '" +str(colors_selected)+"')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
 #                         my_cur.execute("SELECT * FROM clothes_table WHERE id = %s", (id,))
