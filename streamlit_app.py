@@ -192,8 +192,8 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
 #                     id=id.hex
                     with cnx.cursor() as my_cur:
-                        colors_json = json.dumps(colors_selected)
-                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "', '" +colors_json+"')")
+#                         colors_json = json.dumps(colors_selected)
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "', '" +colors_string+"')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
 #                         my_cur.execute("SELECT * FROM clothes_table WHERE id = %s", (id,))
                         st.write(colors_json)
