@@ -195,8 +195,10 @@ if 'login' in st.session_state:
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
 #                         my_cur.execute("SELECT * FROM clothes_table WHERE id = %s", (id,))
                         my_cur.execute("SELECT * FROM clothes_table")
-                        byte_array=my_cur.fetchone()
-                        st.write(byte_array)
+                        byte_array=my_cur.fetchall()
+                        for el in byte_array:
+                            st.write(el[0])
+#                         st.write(byte_array)
                         st.stop()
                 
                         # assuming you have a bytearray object called 'byte_array'
