@@ -202,6 +202,9 @@ if 'login' in st.session_state:
                         for el in byte_array:
                             if el[0] == id:
                                 byte_array=el[1]
+                                item=el[2]
+                                colors=el[3]
+                                st.write(type(colors))
                                 image = Image.open(io.BytesIO(byte_array))
                                 st.image(image)
 #                         
