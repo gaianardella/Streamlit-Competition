@@ -197,7 +197,10 @@ if 'login' in st.session_state:
                         my_cur.execute("SELECT * FROM clothes_table")
                         byte_array=my_cur.fetchall()
                         for el in byte_array:
-                            st.write(el[0])
+                            if el[0] == id:
+                                byte_array=el[1]
+                                image = Image.open(io.BytesIO(byte_array))
+                                st.image(image)
 #                         st.write(byte_array)
                         st.stop()
                 
