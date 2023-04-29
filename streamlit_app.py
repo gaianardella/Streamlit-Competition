@@ -10,6 +10,7 @@ import io
 import os
 from PIL import Image
 import pandas as pd
+import json
 
 # from snowflake.snowpark.session import Session
 # from urllib.error import URLError
