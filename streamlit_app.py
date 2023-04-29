@@ -191,7 +191,7 @@ if 'login' in st.session_state:
 #                     uuid.uuid4().hex
 #                     id=id.hex
                     with cnx.cursor() as my_cur:
-                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "')")
+                        my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data_in_hex+ "', '" +str(item_selected[0])+ "', '" +str(colors_selected)"')")
 #                         my_cur.execute("insert into clothes_table values ('" +id+ "', '" +bytes_data+ "', '" +item_selected+ "')")
 #                         my_cur.execute("SELECT * FROM clothes_table WHERE id = %s", (id,))
                         my_cur.execute("SELECT * FROM clothes_table")
@@ -201,13 +201,10 @@ if 'login' in st.session_state:
                                 byte_array=el[1]
                                 image = Image.open(io.BytesIO(byte_array))
                                 st.image(image)
-#                         st.write(byte_array)
+#                         
                         st.stop()
                 
-                        # assuming you have a bytearray object called 'byte_array'
-                        image = Image.open(io.BytesIO(byte_array))
-                        st.image(image)
-#                         
+                 
                                   
                         
                         
